@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LoginFlow</string>
+    <string name="sign_in_with_google">Google ile giriş yap</string>
+    <string name="sign_in_to_continue">Devam etmek için giriş yapın</string>
+    <string name="sign_out">Çıkış yap</string>
+    <string name="welcome_message">Uygulamaya hoş geldiniz!</string>
+    <string name="error_google_sign_in">Google ile kimlik doğrulama başarısız oldu</string>
+    <string name="unable_to_load_profile">Kullanıcı profili yüklenemedi</string>
+    <string name="return_to_login">Giriş ekranına dön</string>
+    
+    <string name="error_sign_in_cancelled">Giriş işlemi iptal edildi</string>
+    <string name="error_sign_in_failed">Giriş başarısız oldu</string>
+    <string name="error_sign_in_progress">Giriş işlemi zaten devam ediyor</string>
+    <string name="error_network">Ağ hatası, lütfen bağlantınızı kontrol edin</string>
+    <string name="error_firebase_auth">Firebase kimlik doğrulama hatası</string>
+    <string name="error_no_user">Kullanıcı bilgisi döndürülmedi</string>
+    <string name="error_unknown">Bilinmeyen bir hata oluştu</string>
+</resources>
