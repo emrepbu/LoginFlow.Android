@@ -45,6 +45,7 @@ import timber.log.Timber
 @Composable
 fun HomeScreen(
     onLogout: () -> Unit,
+    onNavigateToProfile: () -> Unit,
     viewModel: AuthViewModel = hiltViewModel()
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -105,7 +106,8 @@ fun HomeScreen(
                         onSignOut = {
                             Timber.d("Home: signout")
                             viewModel.signOut()
-                        }
+                        },
+                        onNavigateToProfile = onNavigateToProfile
                     )
                 }
 
@@ -149,16 +151,14 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     user: User,
-    onSignOut: () -> Unit
+    onSignOut: () -> Unit,
+    onNavigateToProfile: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        LaunchedEffect(Unit) {
-            println(user)
-        }
         // Profile pic
         user.photoUrl?.let { photoUrl ->
             AsyncImage(
@@ -193,6 +193,17 @@ fun HomeContent(
             )
         }
 
+        // Bio
+        user.bio?.let { bio ->
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = bio,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(0.8f)
+            )
+        }
+
         Spacer(modifier = Modifier.height(32.dp))
 
         // Welcome
@@ -202,7 +213,17 @@ fun HomeContent(
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(32.dp))
+
+        // Profile button
+        Button(
+            onClick = onNavigateToProfile,
+            modifier = Modifier.fillMaxWidth(0.8f)
+        ) {
+            LocalizedText(resId = R.string.profile_edit_button)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Logout
         Button(

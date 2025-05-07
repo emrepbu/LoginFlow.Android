@@ -3,8 +3,11 @@ package com.emrepbu.loginflow.presentation.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.emrepbu.loginflow.domain.model.AuthResult
+import com.emrepbu.loginflow.domain.model.User
+import com.emrepbu.loginflow.domain.repository.AuthRepository
 import com.emrepbu.loginflow.domain.usecase.GetCurrentUserUseCase
 import com.emrepbu.loginflow.domain.usecase.GetUserStateUseCase
+import com.emrepbu.loginflow.domain.usecase.SaveUserProfileUseCase
 import com.emrepbu.loginflow.domain.usecase.SignInWithGoogleUseCase
 import com.emrepbu.loginflow.domain.usecase.SignOutUseCase
 import com.emrepbu.loginflow.presentation.common.UiState
@@ -21,14 +24,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
+    private val authRepository: AuthRepository,
     private val signInWithGoogleUseCase: SignInWithGoogleUseCase,
     private val signOutUseCase: SignOutUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
+    private val saveUserProfileUseCase: SaveUserProfileUseCase,
     getUserStateUseCase: GetUserStateUseCase
 ) : ViewModel() {
 
     private val _signInState = MutableStateFlow<UiState<Unit>>(UiState.Idle)
     val signInState: StateFlow<UiState<Unit>> = _signInState.asStateFlow()
+
+    private val _profileState = MutableStateFlow<UiState<Unit>>(UiState.Idle)
+    val profileState: StateFlow<UiState<Unit>> = _profileState.asStateFlow()
+
+    val isProfileComplete = authRepository.isProfileComplete
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = false
+        )
 
     // Use Eagerly to prevent stopping/restarting flows which can cause authentication loops
     val isUserLoggedIn = getUserStateUseCase()
@@ -103,5 +118,40 @@ class AuthViewModel @Inject constructor(
 
     fun resetState() {
         _signInState.value = UiState.Idle
+        _profileState.value = UiState.Idle
+    }
+
+    fun saveUserProfile(age: Int, bio: String? = null) {
+        val currentUserValue = when (val state = currentUser.value) {
+            is UiState.Success -> state.data
+            else -> null
+        }
+
+        // Make sure we have a valid user
+        if (currentUserValue == null) {
+            _profileState.value = UiState.Error("No user found")
+            return
+        }
+
+        viewModelScope.launch {
+            _profileState.value = UiState.Loading
+
+            when (val result = saveUserProfileUseCase(currentUserValue, age, bio)) {
+                is AuthResult.Success -> {
+                    _profileState.value = UiState.Success(Unit)
+                    Timber.d("Auth: profile-save-ok")
+                }
+
+                is AuthResult.Error -> {
+                    _profileState.value = UiState.Error(result.message)
+                    Timber.e("Auth: profile-save-err=${result.message}")
+                }
+
+                is AuthResult.Unauthorized -> {
+                    _profileState.value = UiState.Error(result.message)
+                    Timber.e("Auth: profile-save-unauth=${result.message}")
+                }
+            }
+        }
     }
 }
