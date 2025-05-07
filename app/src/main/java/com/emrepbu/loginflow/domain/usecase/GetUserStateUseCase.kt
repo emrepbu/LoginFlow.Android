@@ -1,0 +1,13 @@
+package com.emrepbu.loginflow.domain.usecase
+
+import com.emrepbu.loginflow.domain.repository.AuthRepository
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+class GetUserStateUseCase @Inject constructor(
+    private val authRepository: AuthRepository
+) {
+    operator fun invoke(): Flow<Boolean> {
+        return authRepository.getUserState()
+    }
+}

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">LoginFlow</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="welcome_message">Welcome to the app!</string>
+    <string name="error_google_sign_in">Failed to authenticate with Google</string>
+    <string name="unable_to_load_profile">Unable to load user profile</string>
+    <string name="return_to_login">Return to Login</string>
+    
+    <!-- Auth error messages -->
+    <string name="error_sign_in_cancelled">Sign in was cancelled</string>
+    <string name="error_sign_in_failed">Sign in failed</string>
+    <string name="error_sign_in_progress">Sign in already in progress</string>
+    <string name="error_network">Network error, please check your connection</string>
+    <string name="error_firebase_auth">Firebase authentication failed</string>
+    <string name="error_no_user">No user information returned</string>
+    <string name="error_unknown">Unknown error occurred</string>
 </resources>
