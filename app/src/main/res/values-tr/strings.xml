@@ -8,6 +8,17 @@
     <string name="unable_to_load_profile">Kullanıcı profili yüklenemedi</string>
     <string name="return_to_login">Giriş ekranına dön</string>
     
+    <string name="profile_setup_title">Profilinizi Tamamlayın</string>
+    <string name="profile_setup_subtitle">Devam etmeden önce lütfen bilgilerinizi doğrulayın</string>
+    <string name="profile_name_label">Tam Ad</string>
+    <string name="profile_age_label">Yaş</string>
+    <string name="profile_save_button">Profili Kaydet</string>
+    <string name="profile_hint_age">Yaşınızı girin</string>
+    <string name="profile_error_name_empty">İsim boş olamaz</string>
+    <string name="profile_error_age_invalid">Lütfen geçerli bir yaş girin</string>
+    <string name="profile_save_success">Profil başarıyla kaydedildi</string>
+    <string name="profile_save_error">Profil kaydedilemedi</string>
+    
     <string name="error_sign_in_cancelled">Giriş işlemi iptal edildi</string>
     <string name="error_sign_in_failed">Giriş başarısız oldu</string>
     <string name="error_sign_in_progress">Giriş işlemi zaten devam ediyor</string>
