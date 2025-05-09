@@ -8,7 +8,26 @@
     <string name="unable_to_load_profile">Unable to load user profile</string>
     <string name="return_to_login">Return to Login</string>
     
-    <!-- Auth error messages -->
+    <string name="profile_setup_title">Complete Your Profile</string>
+    <string name="profile_setup_subtitle">Please verify your information before continuing</string>
+    <string name="profile_edit_title">Edit Your Profile</string>
+    <string name="profile_edit_subtitle">Update your information below</string>
+    <string name="profile_name_label">Full Name</string>
+    <string name="profile_age_label">Age</string>
+    <string name="profile_bio_label">Bio</string>
+    <string name="profile_bio_hint">Tell us about yourself...</string>
+    <string name="profile_save_button">Save Profile</string>
+    <string name="profile_edit_button">Edit Profile</string>
+    <string name="profile_update_button">Update Profile</string>
+    <string name="profile_change_photo">Change Photo</string>
+    <string name="profile_hint_age">Enter your age</string>
+    <string name="profile_error_name_empty">Name cannot be empty</string>
+    <string name="profile_error_age_invalid">Please enter a valid age</string>
+    <string name="profile_save_success">Profile saved successfully</string>
+    <string name="profile_save_error">Failed to save profile</string>
+    <string name="profile_update_success">Profile updated successfully</string>
+    <string name="view_profile">View Profile</string>
+    
     <string name="error_sign_in_cancelled">Sign in was cancelled</string>
     <string name="error_sign_in_failed">Sign in failed</string>
     <string name="error_sign_in_progress">Sign in already in progress</string>

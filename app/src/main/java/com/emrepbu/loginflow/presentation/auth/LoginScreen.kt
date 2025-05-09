@@ -120,7 +120,8 @@ fun LoginScreen(
                 viewModel.resetState()
             }
 
-            else -> { /* no-op */
+            else -> {
+                /* no-op */
             }
         }
     }

@@ -8,6 +8,26 @@
     <string name="unable_to_load_profile">Kullanıcı profili yüklenemedi</string>
     <string name="return_to_login">Giriş ekranına dön</string>
     
+    <string name="profile_setup_title">Profilinizi Tamamlayın</string>
+    <string name="profile_setup_subtitle">Devam etmeden önce lütfen bilgilerinizi doğrulayın</string>
+    <string name="profile_edit_title">Profilinizi Düzenleyin</string>
+    <string name="profile_edit_subtitle">Bilgilerinizi güncelleyin</string>
+    <string name="profile_name_label">Tam Ad</string>
+    <string name="profile_age_label">Yaş</string>
+    <string name="profile_bio_label">Biyografi</string>
+    <string name="profile_bio_hint">Kendiniz hakkında bilgi verin…</string>
+    <string name="profile_save_button">Profili Kaydet</string>
+    <string name="profile_edit_button">Profili Düzenle</string>
+    <string name="profile_update_button">Profili Güncelle</string>
+    <string name="profile_change_photo">Fotoğraf Değiştir</string>
+    <string name="profile_hint_age">Yaşınızı girin</string>
+    <string name="profile_error_name_empty">İsim boş olamaz</string>
+    <string name="profile_error_age_invalid">Lütfen geçerli bir yaş girin</string>
+    <string name="profile_save_success">Profil başarıyla kaydedildi</string>
+    <string name="profile_save_error">Profil kaydedilemedi</string>
+    <string name="profile_update_success">Profil başarıyla güncellendi</string>
+    <string name="view_profile">Profili Görüntüle</string>
+    
     <string name="error_sign_in_cancelled">Giriş işlemi iptal edildi</string>
     <string name="error_sign_in_failed">Giriş başarısız oldu</string>
     <string name="error_sign_in_progress">Giriş işlemi zaten devam ediyor</string>
